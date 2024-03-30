@@ -4,7 +4,6 @@ import generateTokenAndSetCookie from "../utils/generateTokens.js";
 
 export const login = async (req, res) => {
     try {
-        console.log("aqui ta");
         const { username, password } = req.body;
         const user = await User.findOne({ username });
         const isPasswordCorrect = await bcrypt.compare(password, user?.password || "");
